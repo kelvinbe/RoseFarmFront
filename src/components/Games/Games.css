@@ -1,0 +1,29 @@
+.main {
+
+    display: flex;
+    justifyContent: center;
+    backgroundColor: #9c2a2a !important;
+    paddingTop: 80;
+    height: 100vh;
+
+}
+
+
+.text-games{
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 40px;
+}
+
+
+  .tag {
+    margin-right: 2px;
+    transition: margin 0.2s ease-in-out;
+  }
+
+  .tag:hover {
+    margin-top: -10px;
+  }

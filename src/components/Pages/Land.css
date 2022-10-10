@@ -1,0 +1,27 @@
+
+.container-land{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    flex-direction: row;
+    margin-top: 50px ;
+
+}
+
+
+.img-game-land{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+    gap: 20px
+}
+
+.text-land{
+    width: 433px;
+    font-family: 'Nunito', sans-serif;
+    /* font-family: 'Titillium Web', sans-serif; */
+    color: white;
+    font-weight: bold;
+}
+
+

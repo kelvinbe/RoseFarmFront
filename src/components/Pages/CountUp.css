@@ -1,0 +1,34 @@
+.container-landing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+
+}
+
+
+.img-game{
+    width: 633px
+}
+
+
+.text-end-count{
+    font-family: 'Nunito', sans-serif !important;
+    /* font-family: 'Titillium Web', sans-serif; */
+    color: rgb(255, 255, 255);
+    font-weight: bold !important;
+}
+
+.count{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px !important;
+    height: 88px;
+    width: 254px;
+    background: rgb(255, 255, 255);
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+    flex-direction: column !important;
+    border-radius: 35px;
+}

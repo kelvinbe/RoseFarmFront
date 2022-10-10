@@ -1,0 +1,26 @@
+.container-landing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+
+}
+
+
+.img-game{
+    width: 633px
+}
+
+
+.text-end{
+    font-family: 'Nunito', sans-serif !important;
+    /* font-family: 'Titillium Web', sans-serif; */
+    color: black;
+    font-weight: bold !important;
+}
+
+.graphh{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px !important;
+}

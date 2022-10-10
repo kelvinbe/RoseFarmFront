@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Titillium+Web&display=swap');
+
+.App {
+  width: 100%;
+  text-align: center;
+}
+
+.css-11b3ww9-MuiPaper-root-MuiAppBar-root{
+  background-color: white !important;
+  color: black !important
+}
+
+
+.css-4t3x6l-MuiPaper-root-MuiDrawer-paper{
+  background-color: #ae0625 !important;
+}
+
+
+.css-5poeop{
+  background-color: black !important;
+}
+
+.css-wf16b5{
+  background-color: rgb(249 60 60) !important;
+}
+
+.react-slideshow-container{
+  display: flex;
+  align-items: center;
+  width: 360px !important ;
+}
+
+.react-slideshow-container .default-nav{
+  background: hsl(0deg 100% 50% / 60%) !important;
+}
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+
+  padding: 11.5px 14px !important;
+  
+}
+

@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
-import { IconButton, MenuItem, Toolbar } from "@mui/material";
+import { IconButton, MenuItem, Toolbar, Badge,  } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 import { Link as RouterLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 import "./Header.css";
 import Drawer from "@mui/material/Drawer";
+import { ShoppingCart } from "@mui/icons-material";
 
-const Header = () => {
+const Header = ({ totalItems}) => {
   const [state, setState] = useState({
     mobileView: false,
     drawerOpen: false,
   });
 
   const { mobileView, drawerOpen } = state;
+  const navigate = useNavigate()
+
+  const iconss = <IconButton aria-label="Show cart items" color='inherit'>
+    
+    <Badge badgeContent={totalItems} color='secondary'>
+    <ShoppingCart />
+    </Badge>
+  </IconButton>
 
   const headersData = [
     {
@@ -31,7 +42,7 @@ const Header = () => {
       href: "/support",
     },
     {
-      label: "Buy Now",
+      label: iconss,
       href: "/logout",
     },
   ];

@@ -78,6 +78,7 @@ export default function Show() {
              image=""
              src={shamba}
              autoPlay
+             loop
              muted
              />
           </Card>

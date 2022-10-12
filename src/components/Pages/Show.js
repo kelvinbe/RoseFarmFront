@@ -53,7 +53,9 @@ const Slideshow = () => {
         ))}
       </Slide>
     </div>
-  );
+  )
+
+
 };
 
 export default function Show() {

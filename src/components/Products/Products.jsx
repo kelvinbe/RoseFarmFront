@@ -45,10 +45,11 @@ const Products = () => {
     const handleAddToCart = async(productId, quantity) => {
 
         console.log('hello there')
-        const item = await commerce.cart.add(productId, quantity)
-        setCart(item.cart)
+        const {cart} = await commerce.cart.add(productId, quantity)
+        setCart(cart)
     }
 
+  
     useEffect(() => {
         fetchProducts();
         fetchCart()
@@ -62,11 +63,10 @@ const Products = () => {
             {
             products.map((product) => {
                     return <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-                    {/* <Product product={product} onAddToCart={handleAddToCart} /> */}
+                    <Product product={product} onAddToCart={handleAddToCart} />
                     </Grid> 
                 })
             }
-            <Cart cart={cart} />
 
     </Grid>
         

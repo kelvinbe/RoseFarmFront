@@ -5,7 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 import { Link as RouterLink } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 
 import "./Header.css";
@@ -19,14 +19,15 @@ const Header = ({ totalItems}) => {
   });
 
   const { mobileView, drawerOpen } = state;
-  const navigate = useNavigate()
+  const locationn = useLocation();
+ let loc = locationn.pathname
 
-  const iconss = <IconButton aria-label="Show cart items" color='inherit'>
+  const iconss = (<>{loc === '/buy' ? <IconButton aria-label="Show cart items" color='inherit'>
     
     <Badge badgeContent={totalItems} color='secondary'>
     <ShoppingCart />
     </Badge>
-  </IconButton>
+  </IconButton>: null}</>)
 
   const headersData = [
     {
@@ -34,16 +35,16 @@ const Header = ({ totalItems}) => {
       href: "/",
     },
     {
-      label: "Farm Products",
-      href: "/produce",
+      label: "Farm Produce",
+      href: "/buy",
     },
     {
-      label: "Support",
-      href: "/support",
+      label: "Checkout",
+      href: "/checkout",
     },
     {
       label: iconss,
-      href: "/logout",
+      href: "/cart",
     },
   ];
 

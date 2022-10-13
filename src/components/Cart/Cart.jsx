@@ -1,14 +1,53 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Container, Typography, Button, Grid } from "@mui/material";
 import './cartStyles.css'
+import CartItem from './CartItem/CartItem';
+import { commerce } from '../../lib/commerce';
+import Header from '../Header/Header';
+import {Link} from 'react-router-dom';
 
-const Cart = ({cart}) => {
+
+const Cart = () => {
+
+    const [cart, setCart] = useState({})
+
+
+    const fetchCart = async () => {
+        setCart(await commerce.cart.retrieve())
+    }
+    const handleUpdateCartQty = async (productId, quantity) => {
+
+        const {cart} = await commerce.cart.update(productId, {quantity})
+
+        setCart(cart)
+    }
+
+    const handleEmptyCart = async () => {
+        const {cart} = await commerce.cart.empty()
+
+
+        setCart(cart)
+    }
+
+    const handleRemoveFromCart = async (productId) => {
+
+        const {cart} = await commerce.cart.remove(productId)
+
+        setCart(cart)
+    }
+
+
+    useEffect(() => {
+
+        fetchCart()
+    })
     console.log('cart', cart?.line_items?.length)
     const isEmpty = !cart?.line_items?.length === 0;
 
     const EmptyCart = () => {
        return <Typography variant='subtitle1'>
             You have no items in your shopping cart, start adding some!
+            <Link to='/buy' className='link'>start adding some!</Link>
         </Typography>
     }
 
@@ -17,7 +56,7 @@ const Cart = ({cart}) => {
         <Grid container spacing={3}>
         {cart?.line_items?.map((item) => (
             <Grid item xs={12} sm={4} key={item.id}>
-                <div>{item.name}</div>
+                <CartItem item={item} handleUpdateCartQty={handleUpdateCartQty} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart}/>
             </Grid>
         ))}
         </Grid>
@@ -27,8 +66,8 @@ const Cart = ({cart}) => {
                 SubTotal: {cart?.subtotal?.formatted_with_symbol}
             </Typography>
             <div>
-<Button className='emptyButton' style={{marginRight: 20}} size="large" type='button' variant='contained' color='secondary'>Empty Cart</Button>
-<Button className='emptyButton' size="large" type='button' variant='contained' color='primary'>Checkout</Button>
+<Button className='emptyButton' style={{marginRight: 20}} size="large" type='button' variant='contained' color='secondary' onClick={handleEmptyCart}>Empty Cart</Button>
+<Button component={Link} to='/checkout' className='emptyButton' size="large" type='button' variant='contained' color='primary'>Checkout</Button>
             </div>
         </div>
         </>
@@ -36,15 +75,18 @@ const Cart = ({cart}) => {
 
 
   return (
+    <>
+    <Header />
     <Container>
         <div className='toolbar'>
-            <Typography className='title'> Your Shopping Cart</Typography>
+            <Typography className='title' variant='h3' gutterBottom> Your Shopping Cart</Typography>
             {isEmpty ? <EmptyCart/> : <FilledCart/>}
 
         </div>
 
 
     </Container>
+    </>
   )
 }
 

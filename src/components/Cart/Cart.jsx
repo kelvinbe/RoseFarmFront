@@ -5,15 +5,23 @@ import CartItem from './CartItem/CartItem';
 import { commerce } from '../../lib/commerce';
 import Header from '../Header/Header';
 import {Link} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux'
+
 
 
 const Cart = () => {
 
     const [cart, setCart] = useState({})
+    const results = useSelector((state) => state.cart )
+    const dispatch = useDispatch()
 
 
     const fetchCart = async () => {
-        setCart(await commerce.cart.retrieve())
+        const cartData = await commerce.cart.retrieve()
+        setCart(cartData)
+        dispatch({type: 'GET_CART', data: cartData})   
+        console.log('dataaa', results) 
+
     }
     const handleUpdateCartQty = async (productId, quantity) => {
 
@@ -39,9 +47,12 @@ const Cart = () => {
 
     useEffect(() => {
 
-        fetchCart()
+       fetchCart()
+        
+
     })
-    console.log('cart', cart?.line_items?.length)
+    console.log('cartFromRedux', results)
+    console.log('cartLocalSTate', cart)
     const isEmpty = !cart?.line_items?.length === 0;
 
     const EmptyCart = () => {

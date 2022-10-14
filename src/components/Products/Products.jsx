@@ -9,6 +9,8 @@ import farm1 from '../../Assets/Farm_1.png'
 import farm2 from '../../Assets/Farm_2.png'
 import { commerce } from '../../lib/commerce';
 import Cart from '../Cart/Cart';
+import {useSelector, useDispatch} from 'react-redux'
+
 
 
 
@@ -31,6 +33,8 @@ const Products = () => {
 
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState({})
+    const results = useSelector((state) => state.cart )
+    const dispatch = useDispatch()
 
 
     const fetchCart = async () => {
@@ -52,7 +56,15 @@ const Products = () => {
   
     useEffect(() => {
         fetchProducts();
-        fetchCart()
+        const fetchData = async () => {
+
+       const cartData = fetchCart()
+       console.log('cartDataaaa', cartData)
+       console.log('stateeee', results)
+        }
+
+        fetchData()
+        
     }, [])
 
 

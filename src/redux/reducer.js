@@ -1,13 +1,15 @@
 const initialState = {
   results: null,
   chartsData: null,
-  auth: null
+  auth: null,
+  cart: null
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "GET_RESULTS":
-      return { results: action.data };
+    case "GET_CART":
+      console.log('actionssss', action?.data)
+      return { cart: action.data };
     case "GET_PS4_GAMES":
       return { results: action.data };
 

@@ -89,7 +89,7 @@ useEffect(() => {
       try {
         setIsLoading(true)
         const resp = await GetAllGames()
-        dispatch({type: 'GET_RESULTS', data: resp})
+        dispatch({type: 'GET_CART', data: resp})
         setIsLoading(false)
       } catch (err) {
         setIsLoading(false)

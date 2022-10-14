@@ -22,7 +22,7 @@ ReactDOM.render(
         <Route path="/buy" element={<Products />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout" element={<Checkout  />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>

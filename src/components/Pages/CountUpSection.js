@@ -8,6 +8,9 @@ import { Typography } from "@mui/material";
 import CountUp from 'react-countup';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+import Tomatoes from '../../Assets/Tomatoes.png'
+import Carrots from '../../Assets/Carrots.png'
+import Ladyfingers from '../../Assets/Ladyfingers.png'
 
 AOS.init()
 
@@ -29,7 +32,7 @@ export default function CountUpSection() {
     <Box
       sx={{
         flexGrow: 1,
-        backgroundColor: "blue",
+        backgroundColor: "white",
         height: "100vh",
         justifyContent: "center",
         alignItems: "center",
@@ -37,24 +40,21 @@ export default function CountUpSection() {
     >
       <Header />
       <Grid container className="container-landing">
-        <Typography className="text-end-count">
-          <h1 >Top  Gaming Enigines Perfomance</h1>
-          <h4 >The top 3 gaming enignes as rated by game developers</h4>
+        <Typography className="text-end-count" gutterBottom style={{marginBottom: 80}}>
+          <h1 >Rediscover the taste</h1>
+          <h4 >Crops grown with your health in mind</h4>
         </Typography>
-        <Grid item xs={12} style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
+        <Grid item xs={12} style={{display: 'flex', justifyContent: 'center', flexDirection: 'row', alignItems: 'center'}}>
         <Grid ref={myRef} item xs={12} className="count">
-            <p style={{fontSize: '20px'}}>Unreal Engine</p>
-          <CountUp start={countIsVisible ? 0 : null} end={100} delay={3} suffix=" %"/>
+          <img src={Tomatoes}/>
         </Grid>
         <Grid item xs={12} className="count">
-        <p style={{fontSize: '20px'}}>Amazon Lumberyard</p>
 
-          <CountUp start={countIsVisible ? 0 : null} end={80} delay={4} suffix=" %"/>
+          <img src={Carrots}/>
         </Grid>
         <Grid item xs={12} className="count">
-        <p style={{fontSize: '20px'}}>CryEngine</p>
+        <img src={Ladyfingers}/>
 
-          <CountUp  start={countIsVisible ? 0 : null} end={50} delay={6} suffix=" %"/>
         </Grid>
         </Grid>
       </Grid>

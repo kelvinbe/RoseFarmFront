@@ -11,7 +11,6 @@ import { IconButton} from "@mui/material";
 import './styles.css'
 
 const Product = ({product, onAddToCart}) => {
-    console.log('product', product)
   return (
     <Card className='root'>
         <CardMedia className='media' image={product.image.url} title={Product.name}/>

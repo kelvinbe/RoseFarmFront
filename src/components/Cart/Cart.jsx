@@ -20,7 +20,6 @@ const Cart = () => {
         const cartData = await commerce.cart.retrieve()
         setCart(cartData)
         dispatch({type: 'GET_CART', data: cartData})   
-        console.log('dataaa', results) 
 
     }
     const handleUpdateCartQty = async (productId, quantity) => {
@@ -51,8 +50,7 @@ const Cart = () => {
         
 
     })
-    console.log('cartFromRedux', results)
-    console.log('cartLocalSTate', cart)
+  
     const isEmpty = !cart?.line_items?.length === 0;
 
     const EmptyCart = () => {

@@ -18,8 +18,10 @@ export default function Checkout() {
   const [activeStep, setActiveStep] = useState(0)
   const [checkoutToken, setCheckoutToken] = useState(null)
   const [cart, setCart] = useState({})
-  const results = useSelector((state) => state.cart )
+  const cartFromRedux = useSelector((state) => state.cart)
+  const token = useSelector((state) => state.token)
   const dispatch = useDispatch()
+  const [deliveryData, setDeliveryData] = useState({})
 
 
   const fetchCart = async () => {
@@ -27,7 +29,6 @@ export default function Checkout() {
   }
 
 
-  const Form = () => activeStep === 0 ? <AddressForm /> : <PaymentForm />
 
   const Confirmation = () => (
     <div>
@@ -41,19 +42,31 @@ export default function Checkout() {
         try {
           const cartData = fetchCart()
           console.log('cartData', cartData)
-
-          const token =  await commerce.checkout.generateToken(cart.id, {type: 'cart'})
+          const token =  await commerce?.checkout?.generateToken(cartFromRedux?.id, {type: 'cart'})
           console.log('tokennnnn', token)
           setCheckoutToken(token)
         } catch (error) {
-          
-        }
+          console.error(error.message)
+        } 
 
     }
 
     generateToken()
-  }, [])
-  
+  }, [cartFromRedux])
+
+  const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1)
+  const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1)
+
+  const next = (data) => {
+    setDeliveryData(data)
+    nextStep()
+  }
+
+
+  const Form = () => activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next} /> : <PaymentForm checkoutToken={checkoutToken} />
+
+
+
   return (
     <React.Fragment>
       <Header />
@@ -73,7 +86,7 @@ export default function Checkout() {
           ))}
         </Stepper>
 
-        {activeStep === steps.length ? <Confirmation /> : <Form />}
+        {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form />}
         </Paper>
         </main>
       </div>

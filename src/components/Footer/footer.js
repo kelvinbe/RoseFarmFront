@@ -9,21 +9,21 @@ export default function FooterContainer() {
             <Footer.Row>
             <Footer.Column>
                 <Footer.Title>About Us</Footer.Title>
-                <Footer.Link href='#'>Story</Footer.Link>
-                <Footer.Link href='#'>Consoles</Footer.Link>
-                <Footer.Link href='#'>Games</Footer.Link>
+                <Footer.Link href='#'>Journey</Footer.Link>
+                <Footer.Link href='#'>Foods</Footer.Link>
+                <Footer.Link href='#'>Goals</Footer.Link>
             </Footer.Column>
             <Footer.Column>
                 <Footer.Title>Services</Footer.Title>
-                <Footer.Link href='#'>Marketing</Footer.Link>
-                <Footer.Link href='#'>Consulting</Footer.Link>
+                <Footer.Link href='#'>Sale of Avocados</Footer.Link>
+                <Footer.Link href='#'>Consulting on Farming Practises</Footer.Link>
                 <Footer.Link href='#'>Developemnt</Footer.Link>
             </Footer.Column>
             <Footer.Column>
                 <Footer.Title>Contact Us</Footer.Title>
-                <Footer.Link href='#'>Kenya</Footer.Link>
-                <Footer.Link href='#'>Zimbabwe</Footer.Link>
-                <Footer.Link href='#'>Nigeria</Footer.Link>
+                <Footer.Link href='#'>Email: rose678@gmail.com</Footer.Link>
+                <Footer.Link href='#'>Tel: 0720552934</Footer.Link>
+                <Footer.Link href='#'>City: Nairobi</Footer.Link>
             </Footer.Column>
             <Footer.Column>
                 <Footer.Title>Social</Footer.Title>

@@ -4,7 +4,6 @@ import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@
 import './cardItemStyles.css'
 
     const CartItem = ({item, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}) => {
-    console.log('item', item)
   return (
     <Card>
         <CardMedia image={item?.image.url} alt={item.name} className='media' />

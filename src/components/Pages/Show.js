@@ -1,8 +1,6 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import Spidy from "../../Assets/eyes.jpg";
-import Sink from "../../Assets/infernal.png";
-import Face from "../../Assets/kratos.jpg";
+
 
 import Box from "@mui/material/Box";
 
@@ -45,15 +43,15 @@ export default function Show() {
                </h4>
           </Typography>
           <Grid item>
-          <img src={frame1}/>
+          <img src={frame1} alt='img'/>
           <p>Organic making</p>
           <Grid item style={{display: 'flex', justifyContent: 'center'}}>
             <div>
-            <img style={{margin: 30}} src={frame2} />
+            <img style={{margin: 30}} src={frame2} alt='img'/>
           <p>Certified Products</p>
           </div>
             <div>
-            <img style={{margin: 30}} src={frame3}  />
+            <img style={{margin: 30}} src={frame3}  alt='img'/>
           <p style={{marginLeft: 10}}>Fast Delivery</p>
           </div>
 
@@ -63,8 +61,8 @@ export default function Show() {
         <Grid item>
           <img src={farm} width={384} />
           <Grid item>
-            <img style={{margin: 20}} src={farm1} />
-            <img style={{margin: 20}} src={farm2} />
+            <img style={{margin: 20}} src={farm1} alt='img' />
+            <img style={{margin: 20}} src={farm2} alt='img'/>
 
           </Grid>
         

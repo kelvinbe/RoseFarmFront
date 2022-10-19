@@ -3,14 +3,12 @@ import React, {useState, useEffect} from "react";
 import { styled } from "@mui/material/styles";
 import {Paper, Stepper, Step, StepLabel, Typography, Button, CssBaseline} from '@mui/material'
 import Header from "../../Header/Header";
-import FooterContainer from "../../Footer/footer";
 import './checkoutStyles.css'
 import AddressForm from "../AddressForm";
 import PaymentForm from "../PaymentForm";
 import { commerce } from '../../../lib/commerce'
-import {useSelector, useDispatch} from 'react-redux'
+import {useSelector} from 'react-redux'
 import { Link } from "react-router-dom";
-import Loader from "../../Loader/Loader";
 
 
 const steps = ['Shipping address', 'Payment details']
@@ -22,13 +20,16 @@ export default function Checkout() {
   const [cart, setCart] = useState({})
   const [isFinished, setIsFinished] = useState(false)
   const cartFromRedux = useSelector((state) => state.cart)
-  const token = useSelector((state) => state.token)
-  const dispatch = useDispatch()
+  // const token = useSelector((state) => state.token)
+  // const dispatch = useDispatch()
   const [deliveryData, setDeliveryData] = useState({})
+
+  console.log(deliveryData)
 
 
   const fetchCart = async () => {
       setCart(await commerce.cart.retrieve())
+      console.log(cart)
   }
 
   const handleEmptyCart = async () => {
@@ -58,6 +59,7 @@ const Boot = styled("main")(({ theme }) => ({
   const timeOut = () => {
     setTimeout(() => {
         setIsFinished(true)
+        console.log(isFinished)
         handleEmptyCart()
     }, 3000)
   };

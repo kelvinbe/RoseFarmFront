@@ -1,13 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { Typography, Button, Divider} from '@mui/material'
 import Review from './Review'
 import {Elements, CardElement, ElementsConsumer} from '@stripe/react-stripe-js'
 import {loadStripe} from '@stripe/stripe-js'
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Loader from '../Loader/Loader'
-import CircularProgress from '@mui/material/CircularProgress';
+
 
 
 
@@ -23,7 +20,7 @@ const PaymentForm = ({checkoutToken, backStep, timeOut, nextStep}) => {
 
   const [showStripe, setStripe] = useState(false)
   const [showMpesa, setMpesa] = useState(true)
-  const [isFinished, setIsFinished] = useState(false)
+  // const [isFinished, setIsFinished] = useState(false)
 
   const handleClick = () => {
 

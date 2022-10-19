@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import Loader from "./Loader";
-import Typewriter from 'typewriter-effect';
+
 
 
 

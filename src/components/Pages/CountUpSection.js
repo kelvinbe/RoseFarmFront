@@ -70,14 +70,14 @@ export default function CountUpSection() {
         </Typography>
         <Boot item xs={12} >
         <Grid ref={myRef} item xs={12} className="count">
-          <img src={Tomatoes}/>
+          <img src={Tomatoes} alt='img'/>
         </Grid>
         <Grid item xs={12} className="count">
 
-          <img src={Carrots}/>
+          <img src={Carrots} alt='img'/>
         </Grid>
         <Grid item xs={12} className="count">
-        <img src={Ladyfingers}/>
+        <img src={Ladyfingers} alt='img'/>
 
         </Grid>
         </Boot>

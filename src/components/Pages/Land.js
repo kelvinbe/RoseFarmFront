@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
@@ -29,15 +29,15 @@ const Boot = styled("img")(({ theme }) => ({
 
 
 export default function Land() {
-  const [alert, setAlert] = useState(true)
+  // const [alert, setAlert] = useState(true)
 
-  useEffect(() => {
-    console.log('hey')
-    setTimeout(() => {
-      setAlert(false)
-    }, 5000)
+  // useEffect(() => {
+  //   console.log('hey')
+  //   setTimeout(() => {
+  //     setAlert(false)
+  //   }, 5000)
 
-  })
+  // })
   
 
   return (

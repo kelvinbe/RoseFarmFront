@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
-import Console from "../../Assets/Console.svg";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import Header from "../Header/Header";
@@ -62,7 +61,7 @@ with RoseFarm</h1>
           </h4>
         </Grid>
         <Grid item>
-          <Boot src={Far} />
+          <Boot src={Far} alt='farm' />
         </Grid>
       </Grid>
     </Box>

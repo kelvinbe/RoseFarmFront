@@ -8,8 +8,6 @@ import Box from "@mui/material/Box";
 
 import "./Show.css";
 import { Typography } from "@mui/material";
-import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import farm from '../../Assets/Farm.png'
@@ -22,41 +20,7 @@ import frame3 from '../../Assets/frame_3.png'
 AOS.init()
 console.log('ooo')
 
-const slideImages = [
-  {
-    url: Sink,
-  },
-  {
-    url: Spidy,
-  },
-  {
-    url: Face,
-  },
-];
 
-const Slideshow = () => {
-  return (
-    <div className="slide-container">
-      <Slide>
-        {slideImages.map((slideImage, index) => (
-          <div className="each-slide" key={index}>
-            <div
-              style={{
-                backgroundImage: `url(${slideImage.url})`,
-                height: 480,
-                borderRadius: 20,
-              }}
-            >
-              <span>{slideImage.caption}</span>
-            </div>
-          </div>
-        ))}
-      </Slide>
-    </div>
-  )
-
-
-};
 
 export default function Show() {
   return (

@@ -13,6 +13,7 @@ import Login from "./components/Login/Login";
 import Checkout from "./components/CheckoutForm/Checkout/Checkout";
 import Products from "./components/Products/Products";
 import Cart from "./components/Cart/Cart";
+import Confirmation from "./components/CheckoutForm/Confirmation";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -24,6 +25,7 @@ ReactDOM.render(
         <Route path="/login" element={<Login />} />
         <Route path="/checkout" element={<Checkout  />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/confirmation" element={<Confirmation />} />
       </Routes>
     </BrowserRouter>
   </Provider>,

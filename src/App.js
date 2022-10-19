@@ -16,9 +16,9 @@ function App() {
   return (
 
     <div className="App">
-      { isLoading ? 
-      <Home /> :
-        <LoaderPage />
+      {
+      <Home /> 
+        // <LoaderPage />
 }
     </div>
   );

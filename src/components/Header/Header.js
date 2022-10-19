@@ -22,6 +22,8 @@ const Header = ({ totalItems}) => {
   const locationn = useLocation();
  let loc = locationn.pathname
 
+ console.log('totalItems', totalItems)
+
   const iconss = (<>{loc === '/buy' ? <IconButton aria-label="Show cart items" color='inherit'>
     
     <Badge badgeContent={totalItems} color='secondary'>
@@ -133,10 +135,16 @@ const Header = ({ totalItems}) => {
         >
           <div>{getDrawerChoices()}</div>
         </Drawer>
-        <div>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
          <h4 style={{color: 'black'}}>RoseFarm</h4>
-
-
+         <span>
+         <IconButton component={Link} to='/cart' aria-label="Show cart items" color='inherit' style={{marginTop: 10}}>
+    
+    <Badge  badgeContent={totalItems} color='secondary'>
+    <ShoppingCart />
+    </Badge>
+  </IconButton>
+  </span>
           </div>
       </Toolbar>
     );

@@ -10,7 +10,23 @@ import {
 import { useForm, FormProvider } from "react-hook-form";
 import FormInput from "./CustomTextField";
 import {Link} from 'react-router-dom';
+import { styled } from "@mui/material/styles";
 
+
+
+const Boot = styled("form")(({ theme }) => ({
+  padding: theme.spacing(1),
+  [theme.breakpoints.down("sm")]: {
+    width: '346px',  
+  },
+
+  [theme.breakpoints.up("md")]: {
+    // width: 760,
+  },
+  [theme.breakpoints.up("lg")]: {
+    
+  },
+}));
 
 
 const AddressForm = ({checkoutToken, next}) => {
@@ -28,7 +44,7 @@ const AddressForm = ({checkoutToken, next}) => {
         Delivery Address
       </Typography>
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit((data) => next({...data, county, shipingOption}))}>
+        <Boot onSubmit={methods.handleSubmit((data) => next({...data, county, shipingOption}))}>
           <Grid container spacing={3}>
             <FormInput required name="firstName" label="First name" />
             <FormInput required name="lastName" label="Last name" />
@@ -61,7 +77,7 @@ const AddressForm = ({checkoutToken, next}) => {
           </Button>
 
         </div>
-        </form>
+        </Boot>
       </FormProvider>
     </>
   );

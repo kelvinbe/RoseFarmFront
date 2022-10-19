@@ -11,12 +11,33 @@ import 'aos/dist/aos.css';
 import Tomatoes from '../../Assets/Tomatoes.png'
 import Carrots from '../../Assets/Carrots.png'
 import Ladyfingers from '../../Assets/Ladyfingers.png'
+import { styled } from "@mui/material/styles";
+
 
 AOS.init()
 
 
 
 export default function CountUpSection() {
+
+
+  const Boot = styled("Grid")(({ theme }) => ({
+    padding: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      // width: 759,  
+    },
+  
+    [theme.breakpoints.up("md")]: {
+      width: 760,
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: '1019px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'row'
+    },
+  }));
 
     const myRef = useRef()
     const [countIsVisible, setCountIsVisible] = useState()
@@ -28,12 +49,15 @@ export default function CountUpSection() {
         })
         observer.observe(myRef.current)
     }, [])
+
+
+
   return (
     <Box
       sx={{
         flexGrow: 1,
         backgroundColor: "white",
-        height: "100vh",
+        height: "144vh",
         justifyContent: "center",
         alignItems: "center",
       }}
@@ -44,7 +68,7 @@ export default function CountUpSection() {
           <h1 >Rediscover the taste</h1>
           <h4 >Crops grown with your health in mind</h4>
         </Typography>
-        <Grid item xs={12} style={{display: 'flex', justifyContent: 'center', flexDirection: 'row', alignItems: 'center'}}>
+        <Boot item xs={12} >
         <Grid ref={myRef} item xs={12} className="count">
           <img src={Tomatoes}/>
         </Grid>
@@ -56,7 +80,7 @@ export default function CountUpSection() {
         <img src={Ladyfingers}/>
 
         </Grid>
-        </Grid>
+        </Boot>
       </Grid>
     </Box>
   );

@@ -64,7 +64,7 @@ export default function Show() {
       sx={{
         flexGrow: 1,
         backgroundColor: "white",
-        height: "100vh",
+        height: "138vh",
         justifyContent: "center",
         alignItems: "center",
       }}
@@ -81,7 +81,7 @@ export default function Show() {
                </h4>
           </Typography>
           <Grid item>
-          <img src={frame1} />
+          <img src={frame1}/>
           <p>Organic making</p>
           <Grid item style={{display: 'flex', justifyContent: 'center'}}>
             <div>
@@ -89,7 +89,7 @@ export default function Show() {
           <p>Certified Products</p>
           </div>
             <div>
-            <img style={{margin: 30}} src={frame3} />
+            <img style={{margin: 30}} src={frame3}  />
           <p style={{marginLeft: 10}}>Fast Delivery</p>
           </div>
 
@@ -97,7 +97,7 @@ export default function Show() {
         </Grid>
         </Grid>
         <Grid item>
-          <img src={farm} />
+          <img src={farm} width={384} />
           <Grid item>
             <img style={{margin: 20}} src={farm1} />
             <img style={{margin: 20}} src={farm2} />

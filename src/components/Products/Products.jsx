@@ -52,6 +52,9 @@ const Products = () => {
 
   const handleAddToCart = async (productId, quantity) => {
     const { cart } = await commerce.cart.add(productId, quantity);
+    window.location.reload()
+    console.log('cartttt', cart)
+
     setCart(cart);
   };
 
@@ -64,10 +67,11 @@ const Products = () => {
     fetchData();
   }, []);
 
+
   return (
     <div>
       <Header totalItems={cart?.total_items} />
-      <Grid container marginTop={10} justify="center" spacing={4}>
+      <Grid container marginTop={10} justify="center" spacing={4} style={{padding: '40px'}}>
         {products.map((product) => {
           return (
             <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>

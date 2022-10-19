@@ -4,36 +4,36 @@ import Grid from "@mui/material/Grid";
 import Product from "./Product/Product";
 import Header from "../Header/Header";
 import "./productStyles.css";
-import farm from "../../Assets/Farm.png";
-import farm1 from "../../Assets/Farm_1.png";
-import farm2 from "../../Assets/Farm_2.png";
+// import farm from "../../Assets/Farm.png";
+// import farm1 from "../../Assets/Farm_1.png";
+// import farm2 from "../../Assets/Farm_2.png";
 import { commerce } from "../../lib/commerce";
-import Cart from "../Cart/Cart";
+// import Cart from "../Cart/Cart";
 import { useSelector, useDispatch } from "react-redux";
 
-const products = [
-  {
-    id: 1,
-    name: "shoes",
-    description: "Running shoes",
-    price: "$5",
-    images: farm,
-  },
-  {
-    id: 2,
-    name: "shoes",
-    description: "Running shoes",
-    price: "$10",
-    images: farm1,
-  },
-  {
-    id: 3,
-    name: "shoes",
-    description: "Running shoes",
-    price: "$5",
-    images: farm2,
-  },
-];
+// const products = [
+//   {
+//     id: 1,
+//     name: "shoes",
+//     description: "Running shoes",
+//     price: "$5",
+//     images: farm,
+//   },
+//   {
+//     id: 2,
+//     name: "shoes",
+//     description: "Running shoes",
+//     price: "$10",
+//     images: farm1,
+//   },
+//   {
+//     id: 3,
+//     name: "shoes",
+//     description: "Running shoes",
+//     price: "$5",
+//     images: farm2,
+//   },
+// ];
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -41,9 +41,7 @@ const Products = () => {
   const results = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const fetchCart = async () => {
-    setCart(await commerce.cart.retrieve());
-  };
+
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
@@ -59,13 +57,19 @@ const Products = () => {
   };
 
   useEffect(() => {
+    const fetchCart = async () => {
+      setCart(await commerce.cart.retrieve());
+      console.log(cart)
+      console.log(results)
+      console.log(dispatch)
+    };
     fetchProducts();
     const fetchData = async () => {
       fetchCart();
     };
 
     fetchData();
-  }, []);
+  }, [cart, results, dispatch]);
 
 
   return (

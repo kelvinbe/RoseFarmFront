@@ -154,7 +154,7 @@ const Header = ({ totalItems}) => {
     return (
       <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
          <div>
-         <h4>RoseFarm</h4>
+         <h4 style={{color: 'black !important'}}>RoseFarm</h4>
           </div>
           <div>
         {getMenuButtons()}

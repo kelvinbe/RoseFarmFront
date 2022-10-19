@@ -152,7 +152,7 @@ const Header = ({ totalItems}) => {
 
   const displayDesktop = () => {
     return (
-      <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
+      <Toolbar style={{ display: "flex", justifyContent: "space-between", color: 'black !important'}}>
          <div>
          <h4 style={{color: 'black !important'}}>RoseFarm</h4>
           </div>

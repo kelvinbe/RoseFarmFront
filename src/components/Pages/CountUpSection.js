@@ -1,11 +1,10 @@
-import React, {useRef, useEffect, useState} from "react";
+import React, {useRef, useEffect} from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Header from "../Header/Header";
 
 import "./CountUp.css";
 import { Typography } from "@mui/material";
-import CountUp from 'react-countup';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import Tomatoes from '../../Assets/Tomatoes.png'
@@ -40,12 +39,12 @@ export default function CountUpSection() {
   }));
 
     const myRef = useRef()
-    const [countIsVisible, setCountIsVisible] = useState()
+    // const [countIsVisible, setCountIsVisible] = useState()
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
-            const entry= entries[0]
-            setCountIsVisible(entry.isIntersecting)
+            // const entry= entries[0]
+            // setCountIsVisible(entry.isIntersecting)
         })
         observer.observe(myRef.current)
     }, [])

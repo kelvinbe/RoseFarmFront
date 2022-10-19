@@ -59,7 +59,7 @@ export default function Show() {
         </Grid>
         </Grid>
         <Grid item>
-          <img src={farm} width={384} />
+          <img src={farm} width={384} alt='img' />
           <Grid item>
             <img style={{margin: 20}} src={farm1} alt='img' />
             <img style={{margin: 20}} src={farm2} alt='img'/>

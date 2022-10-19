@@ -27,11 +27,7 @@ export default function Checkout() {
   console.log(deliveryData)
 
 
-  const fetchCart = async () => {
-      setCart(await commerce.cart.retrieve())
-      console.log(cart)
-  }
-
+ 
   const handleEmptyCart = async () => {
     const {cart} = await commerce.cart.empty()
 
@@ -85,6 +81,11 @@ const Boot = styled("main")(({ theme }) => ({
   useEffect(() => {
     const generateToken = async () => {
         try {
+          const fetchCart = async () => {
+            setCart(await commerce.cart.retrieve())
+            console.log(cart)
+        }
+      
           const cartData = fetchCart()
           console.log('cartData', cartData)
           const token =  await commerce?.checkout?.generateToken(cartFromRedux?.id, {type: 'cart'})
@@ -97,7 +98,7 @@ const Boot = styled("main")(({ theme }) => ({
     }
 
     generateToken()
-  }, [cartFromRedux])
+  }, [cartFromRedux, cart])
 
   const nextStep = () => {
     console.log('hellooo') 

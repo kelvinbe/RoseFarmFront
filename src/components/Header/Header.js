@@ -152,9 +152,9 @@ const Header = ({ totalItems}) => {
 
   const displayDesktop = () => {
     return (
-      <Toolbar style={{ display: "flex", justifyContent: "space-between", color: 'black !important'}}>
-         <div>
-         <h4 style={{color: 'black !important'}}>RoseFarm</h4>
+      <Toolbar style={{ display: "flex", justifyContent: "space-between", color: 'black'}}>
+         <div style={{color: 'black'}}>
+         <h4>RoseFarm</h4>
           </div>
           <div>
         {getMenuButtons()}

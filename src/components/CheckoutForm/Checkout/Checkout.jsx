@@ -81,13 +81,13 @@ const Boot = styled("main")(({ theme }) => ({
   useEffect(() => {
     const generateToken = async () => {
         try {
-          const fetchCart = async () => {
-            setCart(await commerce.cart.retrieve())
-            console.log(cart)
-        }
+        //   const fetchCart = async () => {
+        //     setCart(await commerce.cart.retrieve())
+        //     console.log(cart)
+        // }
       
-          const cartData = fetchCart()
-          console.log('cartData', cartData)
+          // const cartData = fetchCart()
+          // console.log('cartData', cartData)
           const token =  await commerce?.checkout?.generateToken(cartFromRedux?.id, {type: 'cart'})
           console.log('tokennnnn', token)
           setCheckoutToken(token)

@@ -34,10 +34,11 @@ const AddressForm = ({checkoutToken, next}) => {
   const counties = ['Kiambu, Gatundu']
   const shippingOptions = ['Pick up at Gatundu']
 
+
   const methods = useForm();
   const [county, setCounty] = useState(counties)
   const [shipingOption, setShippingOption] = useState(shippingOptions)
-
+  
 
   return (
     <>

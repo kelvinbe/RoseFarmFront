@@ -1,21 +1,35 @@
 import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
-import { IconButton, MenuItem, Toolbar } from "@mui/material";
+import { IconButton, MenuItem, Toolbar, Badge,  } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 import { Link as RouterLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+
 
 import "./Header.css";
 import Drawer from "@mui/material/Drawer";
+import { ShoppingCart } from "@mui/icons-material";
 
-const Header = () => {
+const Header = ({ totalItems}) => {
   const [state, setState] = useState({
     mobileView: false,
     drawerOpen: false,
   });
 
   const { mobileView, drawerOpen } = state;
+  const locationn = useLocation();
+ let loc = locationn.pathname
+
+ console.log('totalItems', totalItems)
+
+  const iconss = (<>{loc === '/buy' ? <IconButton aria-label="Show cart items" color='inherit'>
+    
+    <Badge badgeContent={totalItems} color='secondary'>
+    <ShoppingCart />
+    </Badge>
+  </IconButton>: null}</>)
 
   const headersData = [
     {
@@ -23,16 +37,16 @@ const Header = () => {
       href: "/",
     },
     {
-      label: "Farm Products",
-      href: "/produce",
+      label: "Farm Produce",
+      href: "/buy",
     },
     {
-      label: "Support",
-      href: "/support",
+      label: "Checkout",
+      href: "/checkout",
     },
     {
-      label: "Buy Now",
-      href: "/logout",
+      label: iconss,
+      href: "/cart",
     },
   ];
 
@@ -121,10 +135,16 @@ const Header = () => {
         >
           <div>{getDrawerChoices()}</div>
         </Drawer>
-        <div>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
          <h4 style={{color: 'black'}}>RoseFarm</h4>
-
-
+         <span>
+         <IconButton component={Link} to='/cart' aria-label="Show cart items" color='inherit' style={{marginTop: 10}}>
+    
+    <Badge  badgeContent={totalItems} color='secondary'>
+    <ShoppingCart />
+    </Badge>
+  </IconButton>
+  </span>
           </div>
       </Toolbar>
     );

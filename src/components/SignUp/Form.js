@@ -30,7 +30,6 @@ export default function Form() {
 
     dispatch({ type: "GET_USER_AUTH", data})
     navigate('/login')
-    console.log("value", formValues);
   };
 
   return (

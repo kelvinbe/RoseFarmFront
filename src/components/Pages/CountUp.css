@@ -15,14 +15,14 @@
 .text-end-count{
     font-family: 'Nunito', sans-serif !important;
     /* font-family: 'Titillium Web', sans-serif; */
-    color: rgb(255, 255, 255);
+    color: rgb(2, 63, 58);
     font-weight: bold !important;
 }
 
 .count{
     display: flex;
     justify-content: center;
-    margin-top: 30px !important;
+    margin-top: 224px !important;
     height: 88px;
     width: 254px;
     background: rgb(255, 255, 255);

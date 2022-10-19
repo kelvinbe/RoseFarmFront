@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
-import Console from "../../Assets/Console.svg";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import Header from "../Header/Header";
-import BasicAlerts from "../Alert/Alert";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import Far from '../../Assets/Farmi.png'
@@ -16,14 +14,14 @@ AOS.init()
 const Boot = styled("img")(({ theme }) => ({
   padding: theme.spacing(1),
   [theme.breakpoints.down("sm")]: {
-    width: 759,
+    width: '395px'
   },
 
   [theme.breakpoints.up("md")]: {
-    width: 760,
+    width: '500px',
   },
   [theme.breakpoints.up("lg")]: {
-    width: 733,
+    width: '728px',
   },
 }));
 
@@ -55,7 +53,6 @@ export default function Land() {
       <Header />
       <Grid container className="container-land">
         <Grid item className="text-land" style={{width: '609px'}}>
-        {alert && <BasicAlerts/>}
 
           <h1 style={{fontFamily: 'Libre Baskerville'}}>Organic farming reimagined
 with RoseFarm</h1>
@@ -64,7 +61,7 @@ with RoseFarm</h1>
           </h4>
         </Grid>
         <Grid item>
-          <Boot src={Far} />
+          <Boot src={Far} alt='farm' />
         </Grid>
       </Grid>
     </Box>

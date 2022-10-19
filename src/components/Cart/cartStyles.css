@@ -1,0 +1,35 @@
+.title{
+    margin-top: 5%;
+}
+
+.emptyButton{
+
+    min-width: 150px;
+
+
+}
+
+@media (max-width: 600px) {
+    .emptyButton {
+        margin-bottom: 5px;
+    }
+  }
+
+
+.checkoutButton{
+    min-width: 150px;
+}
+
+
+.link{
+    text-decoration: none;
+}
+
+
+
+.cardDetails{
+    display: flex;
+    margin-top: 3%;
+    width: 100%;
+    justify-content: space-between;
+}

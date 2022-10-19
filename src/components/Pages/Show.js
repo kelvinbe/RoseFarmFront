@@ -8,8 +8,6 @@ import Box from "@mui/material/Box";
 
 import "./Show.css";
 import { Typography } from "@mui/material";
-import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import farm from '../../Assets/Farm.png'
@@ -22,39 +20,7 @@ import frame3 from '../../Assets/frame_3.png'
 AOS.init()
 console.log('ooo')
 
-const slideImages = [
-  {
-    url: Sink,
-  },
-  {
-    url: Spidy,
-  },
-  {
-    url: Face,
-  },
-];
 
-const Slideshow = () => {
-  return (
-    <div className="slide-container">
-      <Slide>
-        {slideImages.map((slideImage, index) => (
-          <div className="each-slide" key={index}>
-            <div
-              style={{
-                backgroundImage: `url(${slideImage.url})`,
-                height: 480,
-                borderRadius: 20,
-              }}
-            >
-              <span>{slideImage.caption}</span>
-            </div>
-          </div>
-        ))}
-      </Slide>
-    </div>
-  );
-};
 
 export default function Show() {
   return (
@@ -62,7 +28,7 @@ export default function Show() {
       sx={{
         flexGrow: 1,
         backgroundColor: "white",
-        height: "100vh",
+        height: "138vh",
         justifyContent: "center",
         alignItems: "center",
       }}
@@ -79,7 +45,7 @@ export default function Show() {
                </h4>
           </Typography>
           <Grid item>
-          <img src={frame1} />
+          <img src={frame1}/>
           <p>Organic making</p>
           <Grid item style={{display: 'flex', justifyContent: 'center'}}>
             <div>
@@ -87,7 +53,7 @@ export default function Show() {
           <p>Certified Products</p>
           </div>
             <div>
-            <img style={{margin: 30}} src={frame3} />
+            <img style={{margin: 30}} src={frame3}  />
           <p style={{marginLeft: 10}}>Fast Delivery</p>
           </div>
 
@@ -95,7 +61,7 @@ export default function Show() {
         </Grid>
         </Grid>
         <Grid item>
-          <img src={farm} />
+          <img src={farm} width={384} />
           <Grid item>
             <img style={{margin: 20}} src={farm1} />
             <img style={{margin: 20}} src={farm2} />

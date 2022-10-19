@@ -1,8 +1,5 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import Spidy from "../../Assets/eyes.jpg";
-import Sink from "../../Assets/infernal.png";
-import Face from "../../Assets/kratos.jpg";
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Box from "@mui/material/Box";
@@ -18,17 +15,7 @@ import shamba from '../../components/Videos/shambaa.mp4'
 AOS.init()
 console.log('ooo')
 
-const slideImages = [
-  {
-    url: Sink,
-  },
-  {
-    url: Spidy,
-  },
-  {
-    url: Face,
-  },
-];
+
 
 
 
@@ -72,7 +59,7 @@ export default function Show() {
       </h4>
           </Typography>
           <Grid item>
-          <img src={frame1} />
+          <img src={frame1} alt='img' />
           <p>Organic making</p>
         
         </Grid>

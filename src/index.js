@@ -6,8 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-
-import Games from "./components/Games/Games";
 import SignUp from "./components/SignUp/SignUp";
 import Login from "./components/Login/Login";
 import Checkout from "./components/CheckoutForm/Checkout/Checkout";

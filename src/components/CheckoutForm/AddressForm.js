@@ -24,6 +24,7 @@ const Boot = styled("form")(({ theme }) => ({
     // width: 760,
   },
   [theme.breakpoints.up("lg")]: {
+
     
   },
 }));

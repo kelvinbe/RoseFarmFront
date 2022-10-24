@@ -38,7 +38,7 @@ const AddressForm = ({checkoutToken, next}) => {
   const methods = useForm();
   const [county, setCounty] = useState(counties)
   const [shipingOption, setShippingOption] = useState(shippingOptions)
-  
+  console.log('check', checkoutToken)
 
   return (
     <>

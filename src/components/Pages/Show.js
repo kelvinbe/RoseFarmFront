@@ -2,7 +2,6 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 
 
-import Box from "@mui/material/Box";
 
 import "./Show.css";
 import { Typography } from "@mui/material";
@@ -14,19 +13,36 @@ import farm2 from '../../Assets/Farm_2.png'
 import frame1 from '../../Assets/frame_1.png'
 import frame2 from '../../Assets/frame_2.png'
 import frame3 from '../../Assets/frame_3.png'
+import { styled } from "@mui/material/styles";
+
 
 AOS.init()
 console.log('ooo')
+
+const Boot = styled("Box")(({ theme }) => ({
+  padding: theme.spacing(1),
+  [theme.breakpoints.down("sm")]: {
+    height: "190vh",
+  },
+
+  [theme.breakpoints.up("md")]: {
+    height: '100vh'
+    
+  },
+  [theme.breakpoints.up("lg")]: {
+    height: '100vh'
+  },
+}));
 
 
 
 export default function Show() {
   return (
-    <Box
+    <Boot
       sx={{
         flexGrow: 1,
         backgroundColor: "white",
-        height: "138vh",
+        height: "190vh",
         justifyContent: "center",
         alignItems: "center",
       }}
@@ -68,6 +84,6 @@ export default function Show() {
         
         </Grid>
       </Grid>
-    </Box>
+    </Boot>
   );
 }

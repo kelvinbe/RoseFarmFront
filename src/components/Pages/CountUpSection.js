@@ -1,6 +1,6 @@
 import React, {useRef, useEffect} from "react";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
+// import Box from "@mui/material/Box";
 import Header from "../Header/Header";
 
 import "./CountUp.css";
@@ -24,6 +24,8 @@ export default function CountUpSection() {
     padding: theme.spacing(1),
     [theme.breakpoints.down("sm")]: {
       // width: 759,  
+      marginBottom: '80px'
+
     },
   
     [theme.breakpoints.up("md")]: {
@@ -34,7 +36,23 @@ export default function CountUpSection() {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      flexDirection: 'row'
+      flexDirection: 'row',
+      marginBottom: '80px'
+    },
+  }));
+
+  const Box = styled("Box")(({ theme }) => ({
+    padding: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      height: "230vh",
+    },
+  
+    [theme.breakpoints.up("md")]: {
+      height: '100vh'
+      
+    },
+    [theme.breakpoints.up("lg")]: {
+      height: '100vh'
     },
   }));
 
@@ -56,7 +74,7 @@ export default function CountUpSection() {
       sx={{
         flexGrow: 1,
         backgroundColor: "white",
-        height: "144vh",
+        height: "230vh",
         justifyContent: "center",
         alignItems: "center",
       }}

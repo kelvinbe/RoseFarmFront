@@ -11,9 +11,26 @@ import 'aos/dist/aos.css';
 
 import frame1 from '../../Assets/frame_1.png'
 import shamba from '../../components/Videos/shambaa.mp4'
+import { styled } from "@mui/material/styles";
+
 
 AOS.init()
 console.log('ooo')
+
+const Boot = styled("Box")(({ theme }) => ({
+  padding: theme.spacing(1),
+  [theme.breakpoints.down("sm")]: {
+    height: "140vh",
+  },
+
+  [theme.breakpoints.up("md")]: {
+    height: '100vh'
+    
+  },
+  [theme.breakpoints.up("lg")]: {
+    height: '100vh'
+  },
+}));
 
 
 
@@ -21,11 +38,11 @@ console.log('ooo')
 
 export default function Show() {
   return (
-    <Box
+    <Boot
       sx={{
         flexGrow: 1,
         backgroundColor: "white",
-        height: "100vh",
+        height: "140vh",
         justifyContent: "center",
         alignItems: "center",
       }}
@@ -65,6 +82,6 @@ export default function Show() {
         </Grid>
         </Grid>
       </Grid>
-    </Box>
+    </Boot>
   );
 }

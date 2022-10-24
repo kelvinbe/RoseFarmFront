@@ -2,7 +2,7 @@ import React from 'react'
 import {Typography, List, ListItem, ListItemText} from '@mui/material'
 
 const Review = ({checkoutToken}) => {
-    console.log('checkoutInReview', checkoutToken.id)
+    console.log('checkoutInReview', checkoutToken)
   return (
     <>
 

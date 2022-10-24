@@ -2,7 +2,6 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import Box from "@mui/material/Box";
 
 import "./Show.css";
 import { Typography } from "@mui/material";

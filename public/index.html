@@ -7,11 +7,10 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="RoseFarm for homegrown produce"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
     <script src="https://kit.fontawesome.com/3dba396ab0.js" crossorigin="anonymous"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=AWBXfdUMiY5XLCTZojwsCK0qbq8ikkaByg6p3IDzcoVJpIcZAFw-HsdgxlD9ljiPxW9xe9TOyiyyWyCj&currency=KSH"></script>
 
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -32,15 +31,16 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <script>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      if('serviceWorker' in navigator){
+         window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./serviceworker.js')
+            .then((reg) => console.log('Success: ', reg.scope))
+            .catch((err) => console.log('Failure: ', err) )
+         })
+      }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    </script>
   </body>
 </html>

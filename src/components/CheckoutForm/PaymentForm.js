@@ -29,6 +29,7 @@ const PaymentForm = ({checkoutToken, backStep, timeOut, nextStep, data}) => {
   const dispatch = useDispatch()
   console.log('phone', phone)
   console.log('mpesa', mpesa)
+  console.log('mpesa', setAmount)
 
 
 
@@ -55,7 +56,7 @@ const PaymentForm = ({checkoutToken, backStep, timeOut, nextStep, data}) => {
 
   }, [data.phone])
 
-  const localhost = 'http://localhost:8000/token'
+  // const localhost = 'http://localhost:8000/token'
   const production = 'https://rosefarmapi.onrender.com/token'
 
 

@@ -52,6 +52,7 @@ const AddressForm = ({checkoutToken, next}) => {
             <FormInput required name="lastName" label="Last name" />
             <FormInput required name="email" label="Email" />
             <FormInput required name="city" label="City" />
+            <FormInput required name="phone" label="Phone" />
             <Grid item xs={12} sm={6}>
               <InputLabel>Delivery County</InputLabel>
               <Select value={county} fullWidth onChange={(e) => setCounty(e.target.value)}>

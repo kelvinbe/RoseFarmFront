@@ -1,8 +1,10 @@
 import React from 'react'
 import {Typography, List, ListItem, ListItemText} from '@mui/material'
 
-const Review = ({checkoutToken}) => {
-    console.log('checkoutInReview', checkoutToken)
+const Review = ({checkoutToken, data}) => {
+    // console.log('checkoutInReview', checkoutToken)
+    console.log('dataInReview', data)
+
   return (
     <>
 
@@ -10,6 +12,36 @@ const Review = ({checkoutToken}) => {
         Order summary
     </Typography>
     <List disablePadding>
+        <ListItem styles={{padding: '2px 0'}} key={'Names'}>
+        <ListItemText primary={'First Name:'}/>
+        <ListItemText primary={data.firstName}/>     
+        </ListItem>
+        <ListItem styles={{padding: '2px 0'}} key={'Last'}>
+        <ListItemText primary={'Last Name:'}/>
+        <ListItemText primary={data.lastName}/>
+            
+        </ListItem>
+        <ListItem styles={{padding: '3px 0'}} key={'email'}>
+        <ListItemText primary={'Email:'}/>
+        <ListItemText style={{marginLeft: '111px'}} primary={data.email}/>
+            
+        </ListItem>
+         
+        <ListItem styles={{padding: '3px 0'}} key={'county'}>
+        <ListItemText primary={'County:'}/>
+        <ListItemText style={{marginLeft: '111px'}} primary={data.county[0]}/>  
+        </ListItem>
+        <ListItem styles={{padding: '3px 0'}} key={'City'}>
+        <ListItemText primary={'City:'}/>
+        <ListItemText style={{marginLeft: '51px'}} primary={data.city}/>
+            
+        </ListItem>
+        <ListItem styles={{padding: '3px 0'}} key={'Ship'}>
+        <ListItemText primary={'Shipping Options:'}/>
+        <ListItemText style={{marginLeft: '51px'}} primary={data.shipingOption[0]}/>
+            
+        </ListItem>
+       
         {checkoutToken?.line_items.map((product) => {
         return  <ListItem styles={{padding: '10px 0'}} key={product.name}>
                 <ListItemText primary={product.name} secondary={`Quantity: ${product.quantity}`}/>

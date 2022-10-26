@@ -3,13 +3,17 @@ const initialState = {
   chartsData: null,
   auth: null,
   cart: null,
-  token: null
+  token: null,
+  mpesaRes: null
+
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case "GET_CART":
       return { cart: action.data };
+    case "GET_MPESA_DATA":
+      return { mpesaRes: action.data };
     case "GET_TOKEN":
       return { token: action.data };
     case "GET_PS5_GAMES":

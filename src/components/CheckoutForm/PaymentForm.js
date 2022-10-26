@@ -71,13 +71,15 @@ const PaymentForm = ({checkoutToken, backStep, timeOut, nextStep, data}) => {
       // setMpesaRes(res.data)
 
       dispatch({type: 'GET_MPESA_DATA', data: res.data.CustomerMessage}) 
+      timeOut()
+
+      nextStep()
       console.log('mpesaResponse', res.data.CustomerMessage)
     }).catch((err) => {
       console.log(err)
     })
     
-    timeOut()
-    nextStep()
+    
 
  
   }

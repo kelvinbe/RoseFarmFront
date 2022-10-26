@@ -50,7 +50,6 @@ const Products = () => {
 
   const handleAddToCart = async (productId, quantity) => {
     const { cart } = await commerce.cart.add(productId, quantity);
-    window.location.reload()
     console.log('cartttt', cart)
 
     setCart(cart);

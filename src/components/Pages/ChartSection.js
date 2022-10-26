@@ -64,14 +64,14 @@ export default function Show() {
         </Grid>
         <Grid item className="img-game">
           <Typography style={{fontFamily: 'Libre Baskerville', color: '#023F3A'}}>
-            <h1 >Everyone should have access to nutritious food
-      </h1>
+            <h1 >Everyone should have access to nutritious food</h1>
       <h4>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
-      Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      A whole farm bio-economic model can evaluate new farm configurations of 
+      existing and novel crops as well as animal-types under various future scenarios. 
+      These future configurations can be evaluated using a variety of indicators: 
+      agronomic; economic; nutritional; and environmental. 
+      Through these models we seek to provide good quality
+      nutritious food for the people.
       </h4>
           </Typography>
           <Grid item>

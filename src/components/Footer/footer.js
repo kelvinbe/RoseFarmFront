@@ -16,8 +16,8 @@ export default function FooterContainer() {
             <Footer.Column>
                 <Footer.Title>Services</Footer.Title>
                 <Footer.Link href='#'>Sale of Avocados</Footer.Link>
-                <Footer.Link href='#'>Consulting on Farming Practises</Footer.Link>
-                <Footer.Link href='#'>Developemnt</Footer.Link>
+                <Footer.Link href='#'>Consultation</Footer.Link>
+                <Footer.Link href='#'>Agroforestry</Footer.Link>
             </Footer.Column>
             <Footer.Column>
                 <Footer.Title>Contact Us</Footer.Title>

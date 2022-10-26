@@ -20,6 +20,8 @@ export default function Checkout() {
   const [cart, setCart] = useState({})
   const [isFinished, setIsFinished] = useState(false)
   const cartFromRedux = useSelector((state) => state.cart)
+  const mpesa = useSelector((state) => state.mpesaRes)
+
   // const token = useSelector((state) => state.token)
   // const dispatch = useDispatch()
   const [deliveryData, setDeliveryData] = useState({})
@@ -61,13 +63,12 @@ const Boot = styled("main")(({ theme }) => ({
   };
 
 
-  const Confirmation = () => (
-   
+const Confirmation = () => (
   <> 
   <br/>
       <div>
-        <Typography variant='h5' style={{textAlign: 'center'}}>
-          Thank you for your purchase. Your order is being processed
+        <Typography variant='h6' style={{textAlign: 'center'}}>
+         {mpesa}.Complete transaction on your phone
         </Typography>
       </div>
       <br />
@@ -107,6 +108,7 @@ const Boot = styled("main")(({ theme }) => ({
   const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1)
 
   const next = (data) => {
+    // console.log('data', data)
     setDeliveryData(data)
     nextStep()
   }
@@ -114,7 +116,7 @@ const Boot = styled("main")(({ theme }) => ({
 
   
 
-  const Form = () => activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next} /> : <PaymentForm checkoutToken={checkoutToken} backStep={backStep} timeOut={timeOut} nextStep={nextStep} cartFromRedux={cartFromRedux} />
+  const Form = () => activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next} /> : <PaymentForm data={deliveryData} checkoutToken={checkoutToken} backStep={backStep} timeOut={timeOut} nextStep={nextStep} cartFromRedux={cartFromRedux} />
 
 
 

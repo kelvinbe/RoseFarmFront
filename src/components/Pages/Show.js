@@ -51,10 +51,8 @@ export default function Show() {
         <Grid item className="img-game">
           <Typography className="text-show">
             <h1 >Mission we are working on</h1>
-            <h4 >See what next Gen Games look like from incredible detailed graphics,
-              To the surreal power of the consoles imporving not only loading time,
-              but player experience overall.
-
+            <h4 >To provide home grown farm products and avail them to the public at the most considerate 
+              price possible. Allow for transportation of the produce country wide starting with Kiambu, Gatundu.
               
                </h4>
           </Typography>

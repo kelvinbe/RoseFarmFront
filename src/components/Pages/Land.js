@@ -68,7 +68,7 @@ export default function Land() {
       sx={{
         flexGrow: 1,
         background:"linear-gradient(90deg, rgba(9,36,0,1) 1%, rgba(10,161,65,1) 38%, rgba(255,255,255,1) 100%)",
-        height: "100vh",
+        // height: "100vh", 
         justifyContent: "center",
         alignItems: "center",
       }}

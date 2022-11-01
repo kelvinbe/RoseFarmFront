@@ -6,6 +6,7 @@ import {loadStripe} from '@stripe/stripe-js'
 import Checkbox from '@mui/material/Checkbox';
 import axios from 'axios'
 import {useSelector, useDispatch} from 'react-redux'
+import CircularStatic from '../Loader/Loader'
 // import * as dotenv from '../../../.env'
 
 
@@ -24,6 +25,7 @@ const PaymentForm = ({checkoutToken, backStep, timeOut, nextStep, data}) => {
   const [showMpesa, setMpesa] = useState(true)
   const [phone, setPhone] = useState('')
   const [amount, setAmount] = useState(`${checkoutToken.subtotal.raw}`)
+  const [loading, setLoading] = useState(false)
   // const [mpesaRespo, setMpesaRes] = useState(false)
   const mpesa = useSelector((state) => state.mpesaRes)
   const dispatch = useDispatch()
@@ -62,26 +64,28 @@ const PaymentForm = ({checkoutToken, backStep, timeOut, nextStep, data}) => {
 
   const handleCheckOut = async () => {
     
+    try {
+      setLoading(true)
 
-    await axios.post(production,{
-      amount,
-      phone
-
-    }).then((res) => {
-      // setMpesaRes(res.data)
-
-      dispatch({type: 'GET_MPESA_DATA', data: res.data.CustomerMessage}) 
-      timeOut()
-
-      nextStep()
-      console.log('mpesaResponse', res.data.CustomerMessage)
-    }).catch((err) => {
-      console.log(err)
-    })
-    
-    
-
- 
+      await axios.post(production,{
+        amount,
+        phone
+  
+      }).then((res) => {
+        // setMpesaRes(res.data)
+      
+        dispatch({type: 'GET_MPESA_DATA', data: res.data.CustomerMessage}) 
+        timeOut()
+  
+        nextStep()
+        console.log('mpesaResponse', res.data.CustomerMessage)
+      })
+      setLoading(true)
+      
+    } catch (error) {
+        console.log(error)
+    }
+  
   }
   
 
@@ -115,7 +119,7 @@ const PaymentForm = ({checkoutToken, backStep, timeOut, nextStep, data}) => {
         </ElementsConsumer>
     </Elements>: <>
       <Typography>
-        Payment from the given Phone Number {data.phone}
+      {loading ? <CircularStatic /> : `Payment from the given Phone Number ${data.phone}`}
       </Typography>
       <br/>
        <div style={{display: 'flex', justifyContent: 'space-between'}}>

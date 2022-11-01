@@ -118,7 +118,7 @@ const PaymentForm = ({checkoutToken, backStep, timeOut, nextStep, data}) => {
           )}
         </ElementsConsumer>
     </Elements>: <>
-      <Typography>
+      <Typography style={{textAlign: 'center'}}>
       {loading ? <CircularStatic /> : `Payment from the given Phone Number ${data.phone}`}
       </Typography>
       <br/>

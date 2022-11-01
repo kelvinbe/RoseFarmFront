@@ -1,6 +1,10 @@
 import './App.css';
 import Home from './components/Home/Home';
 import React from 'react'
+import 'react-notifications-component/dist/theme.css'
+import { ReactNotifications } from 'react-notifications-component'
+
+
 
 function App() {
 
@@ -15,10 +19,11 @@ function App() {
   return (
 
     <div className="App">
-      {
+      <ReactNotifications />
+      
+        
       <Home /> 
-        // <LoaderPage />
-}
+
     </div>
   );
 }

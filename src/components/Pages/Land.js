@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
@@ -6,6 +6,9 @@ import Header from "../Header/Header";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import Far from '../../Assets/Farmi.png'
+import { Store } from 'react-notifications-component';
+
+
 
 import "./Land.css";
 
@@ -25,19 +28,39 @@ const Boot = styled("img")(({ theme }) => ({
   },
 }));
 
+const notification = {
+  title: "WepApp in Progress",
+  message: "Development is ongoing",
+  type: "info",
+  insert: "top",
+  container: "top-right",
+  animationIn: ["animate__animated animate__fadeIn"], // `animate.css v4` classes
+  animationOut: ["animate__animated animate__fadeOut"] // `animate.css v4` classes
+};
+
+
+
+
 
 
 
 export default function Land() {
   // const [alert, setAlert] = useState(true)
 
-  // useEffect(() => {
-  //   console.log('hey')
-  //   setTimeout(() => {
-  //     setAlert(false)
-  //   }, 5000)
+  useEffect(() => {
 
-  // })
+    setTimeout(() => {
+
+    })
+    Store.addNotification({
+      ...notification,
+      container: 'top-right',
+      dismiss: {
+        duration: 5000
+      }
+    })
+
+  })
   
 
   return (
@@ -52,6 +75,7 @@ export default function Land() {
     >
       <Header />
       <Grid container className="container-land">
+        
         <Grid item className="text-land" style={{width: '609px'}}>
 
           <h1 style={{fontFamily: 'Libre Baskerville'}}>Organic farming reimagined

@@ -81,7 +81,7 @@ export default function CountUpSection() {
     >
       <Header />
       <Grid container className="container-landing">
-        <Typography className="text-end-count" gutterBottom style={{marginBottom: 80}}>
+        <Typography className="text-end-count" gutterBottom style={{marginBottom: -65}}>
           <h1 >Rediscover the taste</h1>
           <h4 >Crops grown with your health in mind</h4>
         </Typography>

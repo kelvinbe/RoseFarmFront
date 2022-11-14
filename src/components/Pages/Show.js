@@ -34,6 +34,21 @@ const Boot = styled("Box")(({ theme }) => ({
   },
 }));
 
+const Img = styled("img")(({ theme }) => ({
+  padding: theme.spacing(1),
+  [theme.breakpoints.down("sm")]: {
+    width: 206
+  },
+
+  [theme.breakpoints.up("md")]: {
+    width: 384
+    
+  },
+  [theme.breakpoints.up("lg")]: {
+    width: 384
+  },
+}));
+
 
 
 export default function Show() {
@@ -73,7 +88,7 @@ export default function Show() {
         </Grid>
         </Grid>
         <Grid item>
-          <img src={farm} width={384} alt='img' />
+          <Img src={farm} alt='img' />
           <Grid item>
             <img style={{margin: 20}} src={farm1} alt='img' />
             <img style={{margin: 20}} src={farm2} alt='img'/>

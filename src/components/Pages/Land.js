@@ -7,17 +7,20 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import Far from '../../Assets/Farmi.png'
 import { Store } from 'react-notifications-component';
+import { useNavigate } from "react-router-dom";
+
 
 
 
 import "./Land.css";
+import { Button } from "@mui/material";
 
 AOS.init()
 
 const Boot = styled("img")(({ theme }) => ({
   padding: theme.spacing(1),
   [theme.breakpoints.down("sm")]: {
-    width: '395px'
+    width: '270px'
   },
 
   [theme.breakpoints.up("md")]: {
@@ -44,8 +47,19 @@ const notification = {
 
 
 
+
+
 export default function Land() {
   // const [alert, setAlert] = useState(true)
+  const navigate = useNavigate()
+
+
+  const ToProduce = () => {
+
+
+    navigate('/buy')
+    
+  }
 
   useEffect(() => {
 
@@ -78,7 +92,7 @@ export default function Land() {
         
         <Grid item className="text-land" style={{width: '609px'}}>
 
-          <h1 style={{fontFamily: 'Libre Baskerville'}}>Organic farming reimagined
+          <h1 style={{fontFamily: 'sans-serif'}}>Organic farming reimagined
 with RoseFarm</h1>
           <h4 >
             Best Avocados Produce and other farm related products coming to you today.
@@ -87,7 +101,12 @@ with RoseFarm</h1>
         <Grid item>
           <Boot src={Far} alt='farm' />
         </Grid>
+
+       
       </Grid>
+      <Grid style={{padding: 20}}>
+          <Button  variant="contained" onClick={ToProduce} style={{backgroundColor: '#19d23fa6'}}>Buy Produce</Button>
+        </Grid>
     </Box>
   );
 }

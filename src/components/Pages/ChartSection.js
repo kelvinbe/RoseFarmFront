@@ -63,7 +63,7 @@ export default function Show() {
           </Card>
         </Grid>
         <Grid item className="img-game">
-          <Typography style={{fontFamily: 'Libre Baskerville', color: '#023F3A'}}>
+          <Typography style={{fontFamily: 'san-sarif !important', color: '#023F3A'}}>
             <h1 >Everyone should have access to nutritious food</h1>
       <h4>
       A whole farm bio-economic model can evaluate new farm configurations of 

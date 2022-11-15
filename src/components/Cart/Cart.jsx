@@ -6,12 +6,14 @@ import { commerce } from '../../lib/commerce';
 import Header from '../Header/Header';
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux'
+import CircularStatic from '../Loader/Loader';
 
 
 
 const Cart = () => {
 
     const [cart, setCart] = useState({})
+    const [loading, setLoading] = useState(false)
     // const results = useSelector((state) => state.cart )
     const dispatch = useDispatch()
 
@@ -45,6 +47,13 @@ const Cart = () => {
 
 
     useEffect(() => {
+        console.log('cart', cart)
+
+        if(!cart?.line_items?.length === 0){
+            setLoading(true)
+        }else{
+            setLoading(false)
+        }
 
        fetchCart()
         
@@ -60,9 +69,14 @@ const Cart = () => {
         </Typography>
     }
 
+    console.log('lengthh', cart?.line_items?.length)
+
     const FilledCart = () => {
        return <>
+        {!cart?.line_items?.length === undefined ? <CircularStatic /> : 
+        <>
         <Grid container spacing={3}>
+            
         {cart?.line_items?.map((item) => (
             <Grid item xs={12} sm={4} key={item.id}>
                 <CartItem item={item} handleUpdateCartQty={handleUpdateCartQty} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart}/>
@@ -78,14 +92,14 @@ const Cart = () => {
 <Button className='emptyButton' style={{marginRight: 20}} size="large" type='button' variant='contained' color='secondary' onClick={handleEmptyCart}>Empty Cart</Button>
 <Button component={Link} to='/checkout' className='emptyButton' size="large" type='button' variant='contained' color='primary'>Checkout</Button>
             </div>
-        </div>
+        </div></>}
         </>
     }
 
 
   return (
     <>
-    <Header />
+    <Header/>
     <Container>
         <div className='toolbar'>
             <Typography className='title' variant='h3' gutterBottom> Your Shopping Cart</Typography>

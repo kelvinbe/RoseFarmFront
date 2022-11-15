@@ -33,3 +33,7 @@
     width: 100%;
     justify-content: space-between;
 }
+
+.toolbar{
+    margin-top: 71px;
+}

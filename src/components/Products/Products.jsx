@@ -10,6 +10,9 @@ import "./productStyles.css";
 import { commerce } from "../../lib/commerce";
 // import Cart from "../Cart/Cart";
 import { useSelector, useDispatch } from "react-redux";
+import CircularStatic from "../Loader/Loader";
+import { Store } from 'react-notifications-component';
+
 
 // const products = [
 //   {
@@ -40,49 +43,84 @@ const Products = () => {
   const [cart, setCart] = useState({});
   const results = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
-
+  const notification = {
+    title: "Added item to cart",
+    message: "Development is ongoing",
+    type: "info",
+    insert: "top",
+    container: "top-right",
+    animationIn: ["animate__animated animate__fadeIn"], // `animate.css v4` classes
+    animationOut: ["animate__animated animate__fadeOut"] // `animate.css v4` classes
+  };
 
   const fetchProducts = async () => {
-    const { data } = await commerce.products.list();
-    setProducts(data);
+    try {
+      if(products.length === 0){
+      setLoading(true);
+
+      }else{
+        setLoading(false)
+      }
+      console.log('products', products)
+      const { data } = await commerce.products.list();
+      setProducts(data);
+    } catch (error) {}
   };
 
   const handleAddToCart = async (productId, quantity) => {
     const { cart } = await commerce.cart.add(productId, quantity);
-    console.log('cartttt', cart)
+    console.log("cartttt", cart);
+    
 
     setCart(cart);
+   
   };
 
   useEffect(() => {
     const fetchCart = async () => {
       setCart(await commerce.cart.retrieve());
-      console.log(cart)
-      console.log(results)
-      console.log(dispatch)
+      console.log(cart);
+      console.log(results);
+      console.log(dispatch);
     };
     fetchProducts();
     const fetchData = async () => {
       fetchCart();
     };
 
+    Store.addNotification({
+      ...notification,
+      container: 'top-right',
+      dismiss: {
+        duration: 5000
+      }
+    })
+
     fetchData();
   }, [cart, results, dispatch]);
 
-
   return (
-    <div>
+    <div className="products">
       <Header totalItems={cart?.total_items} />
-      <Grid container marginTop={10} justify="center" spacing={4} style={{padding: '40px'}}>
-        {products.map((product) => {
-          return (
-            <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-              <Product product={product} onAddToCart={handleAddToCart} />
-            </Grid>
-          );
-        })}
-      </Grid>
+      
+        <Grid
+          container
+          marginTop={10}
+          justify="center"
+          spacing={4}
+          style={{ padding: "40px", justifyContent: 'center', }}
+        >
+       { loading ? <CircularStatic /> : products.map((product) => {
+            return (
+              <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+                <Product product={product} onAddToCart={handleAddToCart} />
+              </Grid>
+            );
+          })}
+        </Grid>
+    
     </div>
   );
 };

@@ -16,8 +16,8 @@
 
 .text-show{
     /* width: 433px; */
-    font-family: 'Libre Baskerville';
-    /* font-family: 'Titillium Web', sans-serif; */
+    /* font-family: 'Libre Baskerville'; */
+    font-family: 'sans-serif' !important;
     color: #023F3A;
     font-weight: bold;
 }

@@ -5,6 +5,16 @@
     padding: 3;
 }
 
+.products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+
+
+}
+
+
 .root{
     flex-grow: 1;
 }

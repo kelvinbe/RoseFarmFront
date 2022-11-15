@@ -8,6 +8,7 @@ import { Typography } from "@mui/material";
 import { IconButton} from "@mui/material";
 
 
+
 import './styles.css'
 
 const Product = ({product, onAddToCart}) => {

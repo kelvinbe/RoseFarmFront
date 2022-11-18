@@ -12,6 +12,10 @@ import "./Header.css";
 import Drawer from "@mui/material/Drawer";
 import { ShoppingCart } from "@mui/icons-material";
 
+
+
+
+
 const Header = ({ totalItems}) => {
   const [state, setState] = useState({
     mobileView: false,
@@ -50,12 +54,25 @@ const Header = ({ totalItems}) => {
     },
   ];
 
+  
+
+
+ 
+
+
+
   useEffect(() => {
+    
+
+
+
     const setResponsiveness = () => {
       return window.innerWidth < 900
         ? setState((prevState) => ({ ...prevState, mobileView: true }))
         : setState((prevState) => ({ ...prevState, mobileView: false }));
     };
+
+    
 
     setResponsiveness();
     window.addEventListener("resize", () => setResponsiveness());

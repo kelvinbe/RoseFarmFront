@@ -16,6 +16,8 @@ const Cart = () => {
     const [loading, setLoading] = useState(false)
     // const results = useSelector((state) => state.cart )
     const dispatch = useDispatch()
+    const isEmpty = !cart?.line_items?.length === 0;
+    const isLoaderEmpty = cart?.line_items?.length === undefined;
 
 
     const fetchCart = async () => {
@@ -48,8 +50,10 @@ const Cart = () => {
 
     useEffect(() => {
         console.log('cart', cart)
+        console.log('lengthh', cart?.line_items?.length)
+        console.log('isEmptyyyyy', isEmpty)
 
-        if(!cart?.line_items?.length === 0){
+        if(isLoaderEmpty){
             setLoading(true)
         }else{
             setLoading(false)
@@ -60,7 +64,6 @@ const Cart = () => {
 
     })
   
-    const isEmpty = !cart?.line_items?.length === 0;
 
     const EmptyCart = () => {
        return <Typography variant='subtitle1'>
@@ -69,11 +72,11 @@ const Cart = () => {
         </Typography>
     }
 
-    console.log('lengthh', cart?.line_items?.length)
+    console.log('looooaading', loading)
 
     const FilledCart = () => {
        return <>
-        {!cart?.line_items?.length === undefined ? <CircularStatic /> : 
+        {loading ? <div style={{textAlign: 'center'}}><CircularStatic /> </div> : 
         <>
         <Grid container spacing={3}>
             
@@ -102,7 +105,7 @@ const Cart = () => {
     <Header/>
     <Container>
         <div className='toolbar'>
-            <Typography className='title' variant='h3' gutterBottom> Your Shopping Cart</Typography>
+            <Typography className='title' variant='h3' gutterBottom>{ loading ? '' : 'Your Shopping Cart'}</Typography>
             {isEmpty ? <EmptyCart/> : <FilledCart/>}
 
         </div>

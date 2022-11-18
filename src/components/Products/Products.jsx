@@ -12,6 +12,9 @@ import { commerce } from "../../lib/commerce";
 import { useSelector, useDispatch } from "react-redux";
 import CircularStatic from "../Loader/Loader";
 import { Store } from 'react-notifications-component';
+import { ReactNotifications } from 'react-notifications-component'
+
+
 
 
 // const products = [
@@ -38,6 +41,18 @@ import { Store } from 'react-notifications-component';
 //   },
 // ];
 
+
+
+const notification = {
+  title: "Added item to cart",
+  message: "You added new item to cart",
+  type: "info",
+  insert: "top",
+  container: "top-right",
+  animationIn: ["animate__animated animate__fadeIn"], // `animate.css v4` classes
+  animationOut: ["animate__animated animate__fadeOut"] // `animate.css v4` classes
+};
+
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
@@ -45,15 +60,7 @@ const Products = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
 
-  const notification = {
-    title: "Added item to cart",
-    message: "Development is ongoing",
-    type: "info",
-    insert: "top",
-    container: "top-right",
-    animationIn: ["animate__animated animate__fadeIn"], // `animate.css v4` classes
-    animationOut: ["animate__animated animate__fadeOut"] // `animate.css v4` classes
-  };
+  
 
   const fetchProducts = async () => {
     try {
@@ -72,13 +79,22 @@ const Products = () => {
   const handleAddToCart = async (productId, quantity) => {
     const { cart } = await commerce.cart.add(productId, quantity);
     console.log("cartttt", cart);
+
+
+    Store?.addNotification({
+      ...notification,
+      container: 'top-left',
+      dismiss: {
+        duration: 5000
+      }
+    })
     
 
     setCart(cart);
    
   };
 
-  useEffect(() => {
+  useEffect(() => { 
     const fetchCart = async () => {
       setCart(await commerce.cart.retrieve());
       console.log(cart);
@@ -90,21 +106,23 @@ const Products = () => {
       fetchCart();
     };
 
-    Store.addNotification({
-      ...notification,
-      container: 'top-right',
-      dismiss: {
-        duration: 5000
-      }
-    })
+   
 
     fetchData();
   }, [cart, results, dispatch]);
 
+
+  useEffect(() => {
+
+
+
+  }, [])
+
   return (
     <div className="products">
       <Header totalItems={cart?.total_items} />
-      
+      <ReactNotifications />
+
         <Grid
           container
           marginTop={10}
@@ -112,7 +130,7 @@ const Products = () => {
           spacing={4}
           style={{ padding: "40px", justifyContent: 'center', }}
         >
-       { loading ? <CircularStatic /> : products.map((product) => {
+       {loading ? <CircularStatic /> : products.map((product) => {
             return (
               <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
                 <Product product={product} onAddToCart={handleAddToCart} />

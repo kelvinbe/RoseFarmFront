@@ -9,6 +9,7 @@ import PaymentForm from "../PaymentForm";
 import { commerce } from '../../../lib/commerce'
 import {useSelector} from 'react-redux'
 import { Link } from "react-router-dom";
+import CircularStatic from "../../Loader/Loader";
 
 
 const steps = ['Shipping address', 'Payment details']
@@ -21,6 +22,7 @@ export default function Checkout() {
   const [isFinished, setIsFinished] = useState(false)
   const cartFromRedux = useSelector((state) => state.cart)
   const mpesa = useSelector((state) => state.mpesaRes)
+  const [isLoading, setLoading] = useState(false)
 
   // const token = useSelector((state) => state.token)
   // const dispatch = useDispatch()
@@ -89,9 +91,11 @@ const Confirmation = () => (
       
           // const cartData = fetchCart()
           // console.log('cartData', cartData)
+          setLoading(true)
           const token =  await commerce?.checkout?.generateToken(cartFromRedux?.id, {type: 'cart'})
           console.log('tokennnnn', token)
           setCheckoutToken(token)
+          setLoading(false)
         } catch (error) {
           console.error(error.message)
         } 
@@ -100,6 +104,8 @@ const Confirmation = () => (
 
     generateToken()
   }, [cartFromRedux, cart])
+
+
 
   const nextStep = () => {
     console.log('hellooo') 
@@ -126,7 +132,7 @@ const Confirmation = () => (
       <CssBaseline />
       <div className="toolbar" style={{marginTop: 90}}>
 
-        <Boot className="layout">
+      { isLoading ? <div style={{textAlign: 'center'}}><CircularStatic /></div> : <Boot className="layout">
         <Paper className="paper">
         <Typography variant='h4' align='center'>
         Checkout
@@ -142,7 +148,7 @@ const Confirmation = () => (
 
         {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form />}
         </Paper>
-        </Boot>
+        </Boot> }
       </div>
 
          

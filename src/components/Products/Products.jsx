@@ -128,9 +128,9 @@ const Products = () => {
           marginTop={10}
           justify="center"
           spacing={4}
-          style={{ padding: "40px", justifyContent: 'center', }}
+          style={{ padding: "20px", justifyContent: 'center', }}
         >
-       {loading ? <CircularStatic /> : products.map((product) => {
+       {loading ? <div style={{alignItems: 'center',textAlign: 'center', height: '100vh', display: 'flex', justifyContent: 'center'}}><CircularStatic /></div> : products.map((product) => {
             return (
               <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
                 <Product product={product} onAddToCart={handleAddToCart} />

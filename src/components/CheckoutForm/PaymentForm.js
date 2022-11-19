@@ -80,7 +80,7 @@ const PaymentForm = ({checkoutToken, backStep, timeOut, nextStep, data}) => {
         nextStep()
         console.log('mpesaResponse', res.data.CustomerMessage)
       })
-      setLoading(true)
+      setLoading(false)
       
     } catch (error) {
         console.log(error)

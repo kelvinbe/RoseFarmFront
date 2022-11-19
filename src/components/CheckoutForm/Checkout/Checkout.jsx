@@ -132,7 +132,7 @@ const Confirmation = () => (
       <CssBaseline />
       <div className="toolbar" style={{marginTop: 90}}>
 
-      { isLoading ? <div style={{textAlign: 'center'}}><CircularStatic /></div> : <Boot className="layout">
+      { activeStep !== 2 && isLoading ? <div style={{alignItems: 'center',textAlign: 'center', height: '100vh', display: 'flex', justifyContent: 'center'}}><CircularStatic /></div> : <Boot className="layout">
         <Paper className="paper">
         <Typography variant='h4' align='center'>
         Checkout

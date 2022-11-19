@@ -76,7 +76,7 @@ const Cart = () => {
 
     const FilledCart = () => {
        return <>
-        {loading ? <div style={{textAlign: 'center'}}><CircularStatic /> </div> : 
+        {loading ? <div style={{alignItems: 'center',textAlign: 'center', height: '100vh', display: 'flex', justifyContent: 'center'}}><CircularStatic /> </div> : 
         <>
         <Grid container spacing={3}>
             

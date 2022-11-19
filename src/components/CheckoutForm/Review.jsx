@@ -14,31 +14,31 @@ const Review = ({checkoutToken, data}) => {
     <List disablePadding>
         <ListItem styles={{padding: '2px 0'}} key={'Names'}>
         <ListItemText primary={'First Name:'}/>
-        <ListItemText primary={data.firstName}/>     
+        <ListItemText primary={data.firstName} style={{textAlign: 'end'}}/>     
         </ListItem>
         <ListItem styles={{padding: '2px 0'}} key={'Last'}>
         <ListItemText primary={'Last Name:'}/>
-        <ListItemText primary={data.lastName}/>
+        <ListItemText primary={data.lastName} style={{textAlign: 'end'}}/>
             
         </ListItem>
         <ListItem styles={{padding: '3px 0'}} key={'email'}>
         <ListItemText primary={'Email:'}/>
-        <ListItemText style={{marginLeft: '111px'}} primary={data.email}/>
+        <ListItemText style={{textAlign: 'end'}} primary={data.email}/>
             
         </ListItem>
          
         <ListItem styles={{padding: '3px 0'}} key={'county'}>
         <ListItemText primary={'County:'}/>
-        <ListItemText style={{marginLeft: '111px'}} primary={data.county[0]}/>  
+        <ListItemText style={{textAlign: 'end'}} primary={data.county[0]}/>  
         </ListItem>
         <ListItem styles={{padding: '3px 0'}} key={'City'}>
         <ListItemText primary={'City:'}/>
-        <ListItemText style={{marginLeft: '51px'}} primary={data.city}/>
+        <ListItemText style={{textAlign: 'end'}} primary={data.city}/>
             
         </ListItem>
         <ListItem styles={{padding: '3px 0'}} key={'Ship'}>
         <ListItemText primary={'Shipping Options:'}/>
-        <ListItemText style={{marginLeft: '51px'}} primary={data.shipingOption[0]}/>
+        <ListItemText style={{textAlign: 'end'}} primary={data.shipingOption[0]}/>
             
         </ListItem>
        
